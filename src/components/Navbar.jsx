@@ -1,12 +1,23 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ThemeContext from "./context/ThemeContext";
+import { useDispatch, useSelector } from "react-redux";
+import { toogleTheme } from "../store/action/ThemeAction";
+import { setLang } from "../store/action/langAction";
+import { setAkun } from "../store/action/akunAction";
 
 const Navbar = () => {
   const [getTheme, setTheme] = useContext(ThemeContext);
   const root = window.document.documentElement;
 
-  console.log(getTheme);
+  // console.log(getTheme);
+  const theme = useSelector((state) => state.theme.theme);
+  const lang = useSelector((state) => state.lang);
+  const akun = useSelector((state) => state.akun);
+  const dispatchRedux = useDispatch();
+  console.log(lang);
+  console.log(theme);
+  console.log(akun);
 
   const handleTheme = () => {
     if (getTheme == "light") {
@@ -21,9 +32,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar dark:bg-stone-700 dark:text-white pt-9 bg-stone-200">
+    <div className="navbar dark:bg-stone-700 dark:text-white bg-stone-200">
       <div className="navbar-start">
-        <div className="pr-48 dark:bg-stone-700 dark:text-white pt-9 bg-whitenavbar-start">
+        <div className="pr-48 dark:bg-stone-700 dark:text-white  bg-whitenavbar-start">
           <div className="dropdown">
             <div
               tabIndex={0}
@@ -80,6 +91,47 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="btn m-1">
+            Akun
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+          >
+            <li>
+              <button onClick={() => dispatchRedux(setAkun("adm"))}>
+                Admin
+              </button>
+            </li>
+            <li>
+              <button onClick={() => dispatchRedux(setAkun("usr"))}>
+                User
+              </button>
+            </li>
+          </ul>
+        </div>
+        <details className="dropdown">
+          <summary className="btn m-1">Bahasa</summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <li>
+              <button onClick={() => dispatchRedux(setLang("id"))}>
+                Indonesia
+              </button>
+            </li>
+            <li>
+              <button onClick={() => dispatchRedux(setLang("en"))}>
+                Inggris
+              </button>
+            </li>
+          </ul>
+        </details>
+        <input
+          type="checkbox"
+          value="synthwave"
+          className="toggle theme-controller"
+          onClick={() => dispatchRedux(toogleTheme())}
+        />
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
           <input

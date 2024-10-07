@@ -18,6 +18,8 @@ import Negara from "./pages/negara/Negara";
 import DetailNegara from "./pages/DetailNegara";
 import ThemeContext from "./components/context/ThemeContext";
 import { Footer } from "./components/Footer";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 export default function App() {
   const [data, setData] = useState("hallo");
@@ -49,6 +51,7 @@ export default function App() {
   return (
     <BrowserRouter>
     <ThemeContext.Provider value={theme}>
+      <Provider store={store}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Beranda />} />
@@ -61,6 +64,7 @@ export default function App() {
         <Route path="/detailnegara/:id" element={<DetailNegara />} />
       </Routes>
       <Footer/>
+      </Provider>
       </ThemeContext.Provider>
     </BrowserRouter>
   );

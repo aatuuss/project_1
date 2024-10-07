@@ -3,6 +3,9 @@ import { useCallback, useEffect, useReducer, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import BerandaView from "./BerandaView";
 import { data } from "autoprefixer";
+import { useDispatch, useSelector } from "react-redux";
+import { toogleTheme } from "../../store/action/ThemeAction";
+
 const nilaiDefault = {
   data: [],
   filterData: [],
@@ -27,6 +30,7 @@ const reducer = (state, action) => {
       throw new Error("error di case");
   }
 };
+
 export default function Beranda() {
   const [state, dispatch] = useReducer(reducer, nilaiDefault);
 
@@ -34,13 +38,17 @@ export default function Beranda() {
   // const [hasilCari, setHasilCari] = useState();
   const [cariBaru, setCariBaru] = useSearchParams();
 
+  const theme = useSelector((state) => state.theme.theme);
+  const dispatchRedux = useDispatch ();
+    console.log(theme);
+
   const ambilResto = async () => {
     const response = await axios.get(
       "https://restaurant-api.dicoding.dev/list"
     );
     const data = await response.data;
     // setResto(data);
-    dispatch({type:"FETCH_BERHASIL", payload:data})
+    dispatch({ type: "FETCH_BERHASIL", payload: data });
   };
 
   useEffect(() => {
@@ -62,7 +70,7 @@ export default function Beranda() {
       const data = await response.data;
       // setHasilCari(data);
 
-      dispatch({type:"SET_FILTER", payload: data});
+      dispatch({ type: "SET_FILTER", payload: data });
     },
     [cariBaru]
   );
@@ -71,11 +79,14 @@ export default function Beranda() {
 
   console.log(state);
   return (
+    <div className="">
+      <button onClick={() => dispatchRedux(toogleTheme())}>COBA DISPATCH</button>
     <BerandaView
       cariBaru={cariBaru}
       hasilCari={state.filterData}
       hasilFilter={hasilFilter}
       ubahCari={ubahCari}
     />
+    </div>
   );
 }
