@@ -17,6 +17,7 @@ import ProductDetail from "./pages/productdetail/ProductDetail";
 import Negara from "./pages/negara/Negara";
 import DetailNegara from "./pages/DetailNegara";
 import ThemeContext from "./components/context/ThemeContext";
+import { Footer } from "./components/Footer";
 
 export default function App() {
   const [data, setData] = useState("hallo");
@@ -59,6 +60,7 @@ export default function App() {
         <Route path="/negara" element={<Negara />} />
         <Route path="/detailnegara/:id" element={<DetailNegara />} />
       </Routes>
+      <Footer/>
       </ThemeContext.Provider>
     </BrowserRouter>
   );

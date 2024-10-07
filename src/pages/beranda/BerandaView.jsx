@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BerandaView = ({ubahCari, hasilCari, cariBaru, hasilFilter}) => {
     return (
-        <div className="beranda dark:bg-black flex flex-col">
+        <div className="beranda dark:bg-stone-500 dark:text-black flex flex-col">
           <label className="input input-bordered flex items-center gap-2">
             <input
               type="text"
@@ -20,7 +20,7 @@ const BerandaView = ({ubahCari, hasilCari, cariBaru, hasilFilter}) => {
           <div className="grid grid-cols-3 mx-4 gap-5">
             {hasilFilter?.restaurants?.map((data) => {
               return (
-                <div className="card bg-gray-100 dark:bg-stone-700 dark:text-white w-96 shadow-xl" key={data?.name}>
+                <div className="card  bg-gray-100 dark:bg-stone-700 dark:text-white w-96 shadow-xl" key={data?.name}>
                   <figure>
                     <img
                       src={`https://restaurant-api.dicoding.dev/images/medium/${data.pictureId}`}

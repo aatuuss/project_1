@@ -19,7 +19,7 @@ export default function Detail() {
   }, []);
 
   return (
-    <div className="hero bg-base-200 min-h-screen  bg-gray-100">
+    <div className="hero dark:bg-stone-500 dark:text-white pt-9 bg-white bg-base-200 min-h-screen  bg-gray-100">
       <div className="hero-content text-center space-y-8 flex-col">
         <img src={negara?.flag} className="max-w-sm rounded-lg shadow-2xl" />
         <div>

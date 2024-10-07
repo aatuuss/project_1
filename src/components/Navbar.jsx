@@ -21,9 +21,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-stone-200">
+    <div className="navbar dark:bg-stone-700 dark:text-white pt-9 bg-stone-200">
       <div className="navbar-start">
-        <div className="pr-48 navbar-start">
+        <div className="pr-48 dark:bg-stone-700 dark:text-white pt-9 bg-whitenavbar-start">
           <div className="dropdown">
             <div
               tabIndex={0}

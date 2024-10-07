@@ -7,7 +7,7 @@ export default function CardProduct({
 }) {
   try {
     return (
-      <div className="card bg-gray-100 w-96 h-full shadow-xl">
+      <div className="card dark:bg-stone-700 w-96 h-full shadow-xl">
         <figure>
           <img
             className="w-[320px] h-[160px] object-contain"

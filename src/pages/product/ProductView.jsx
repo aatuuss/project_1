@@ -5,10 +5,7 @@ import "./ProductView.scss";
 export default function ProductView({ products }) {
   try {
     return (
-      <div className="flex-col py-24 bg-white">
-        <div className="pb-24 title-text">
-          <h2 className="text-3xl text-center">Produk</h2>
-        </div>
+      <div className="flex-col dark:bg-stone-500 dark:text-white py-24 bg-white">
         <div className="flex justify-center">
           <div className="grid grid-cols-3 gap-4">
             {products?.map((product, index) => (

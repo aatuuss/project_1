@@ -25,7 +25,7 @@ const BerandaView = ({ ubahCari, cariNegara, hasilCari, hasilFilter }) => {
             </div>
           </div> */}
 
-      <div className="grid justify-items-stretch pt-12 bg-white">
+      <div className="grid justify-items-stretch dark:bg-stone-500 dark:text-black pt-12 bg-white">
         <label className="input input-bordered flex items-center gap-2 justify-self-center w-full">
           <input
             type="text"
@@ -54,11 +54,11 @@ const BerandaView = ({ ubahCari, cariNegara, hasilCari, hasilFilter }) => {
         </div>
       </div>
 
-      <div className="flex justify-center pt-9 bg-white">
+      <div className="flex justify-center dark:bg-stone-500 dark:text-white pt-9 bg-white">
         <div className="grid grid-cols-3 gap-5 pb-9">
           {hasilFilter?.map((data) => (
             <div
-              className="card card-compact bg-gray-100 w-96 shadow-xl"
+              className="card card-compact dark:bg-stone-700 w-96 shadow-xl"
               key={data?.name}
             >
               <figure>
