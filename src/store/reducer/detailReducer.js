@@ -1,5 +1,3 @@
-import { SET_DATA } from  "../action/detailAction";
-
 const nilaiDefault = {
     data: {},
 }
@@ -7,13 +5,11 @@ const nilaiDefault = {
 const detailReducer = (state = nilaiDefault, action) => {
     switch (action.type) {
         case SET_DATA:
-            return{
+            return {
                 ...state,
                 data: action.payload,
             };
             default:
                 return state;
-    }
+    };
 };
-
-export default detailReducer;

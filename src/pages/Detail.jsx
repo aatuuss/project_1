@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setData } from "../store/action/detail.Action";
+import { setData } from "../store/action/detailAction";
 
 export default function Detail() {
   const { id } = useParams();
